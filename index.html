@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hypotenuse Calculator</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto:wght@100&display=swap");
+      * {
+        font-family: "Poppins", sans-serif;
+        font-family: "Roboto", sans-serif;
+        font-size: 50px;
+      }
+      body {
+        background-color: royalblue;
+      }
+      h2 {
+        color: white;
+      }
+      h1 {
+        color: white;
+      }
+      button {
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: lightgrey;
+      }
+      input {
+        background-color: lightgrey;
+        border: 1px solid black;
+        border-radius: 5px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <br />
+      <h1>| Hypotenuse Calculator |</h1>
+      <input type="number" id="sidea" placeholder="Enter side A" step="any" />
+      <br />
+      <br />
+      <input type="number" id="sideb" placeholder="Enter side B" step="any" />
+      <br /><br />
+      <button type="button" id="submit">Enter</button>
+      <br /><br />
+      <h2 id="result"></h2>
+    </center>
+
+    <script>
+      //easy
+      //   let a, b, c;
+      //   a = window.prompt("Enter side A");
+      //   a = Number(a);
+      //   b = window.prompt("Enter side B");
+      //   b = Number(b);
+      //   c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+      //   console.log("Hypotenuse: ", c);
+
+      // Using innerHTML
+      document.getElementById("submit").onclick = function () {
+        result = document.getElementById("result");
+        sideA = document.getElementById("sidea").value;
+        sideA = Number(sideA);
+        if (sideA == " ") {
+          alert("Enter Side A!");
+          result.innerHTML = "";
+          sidea.focus();
+          sidea.value = "";
+          return;
+        }
+        if (sideA < 0.0) {
+          alert("Side cannot be negative!");
+          resutl.innerHTML = "";
+          sidea.focus();
+          sidea.value = "";
+          return;
+        }
+        if (sideA == 0) {
+          alert("Side cannot be zero!");
+          resutl.innerHTML = "";
+          sidea.focus();
+          sidea.value = "";
+          return;
+        }
+        sideB = document.getElementById("sideb").value;
+        sideB = Number(sideB);
+        if (sideB == " ") {
+          alert("Enter Side B!");
+          result.innerHTML = "";
+          sideb.focus();
+          sideb.value = "";
+          return;
+        }
+        if (sideB < 0.0) {
+          alert("Side cannot be negative!");
+          result.innerHTML = "";
+          sideb.focus();
+          sideb.value = "";
+          return;
+        }
+        if (sideB == 0) {
+          alert("Side cannot be zero!");
+          resutl.innerHTML = "";
+          sideb.focus();
+          sideb.value = "";
+          return;
+        }
+        sideC = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+        sideC = sideC.toFixed(2);
+        result.innerHTML = "Hypotenuse is: " + sideC;
+      };
+    </script>
+  </body>
+</html>
